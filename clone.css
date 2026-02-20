@@ -470,3 +470,23 @@ nav img{
 .upper-sec a:hover{
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+    }
+    .boxes {
+        flex-direction: column;
+        align-items: center;
+    }
+    .know {
+        flex-direction: column;
+        height: auto;
+    }
+    .child {
+        width: 100%;
+    }
+    .books {
+        flex-wrap: wrap;
+    }
+}

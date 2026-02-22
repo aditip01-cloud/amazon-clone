@@ -471,22 +471,228 @@ nav img{
     text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-    header {
-        flex-wrap: wrap;
+.books img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.books {
+    flex-wrap: wrap;
+}
+
+/* -- When window shrinks below 1400px: boxes start to flex-shrink so they don't overflow -- */
+@media (max-width: 1400px) {
+    .boxes {
+        gap: 10px;
+        padding: 10px;
     }
+
+    .box1, .box2, .box3, .box4 {
+        width: auto;
+        flex: 1 1 200px;
+        min-width: 200px;
+    }
+
+    /* Keep minimum padding inside boxes at all times */
+    .box1 h1, .box2 h1, .box3 h1, .box4 h1 {
+        padding: 0px 15px;
+    }
+
+    .box1 a, .box2 a, .box3 a, .box4 a {
+        padding: 10px 15px;
+    }
+
+    .if1, .if2, .if3, .if4 {
+        width: 90%;
+    }
+
+    .on, .pi, .tw, .ti {
+        padding: 30px;
+    }
+
+    /* Books: ensure images wrap and stay visible */
+    .books {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px;
+        justify-content: center;
+    }
+
+    .subbox {
+        height: auto;
+        padding-bottom: 16px;
+    }
+}
+
+/* -- Around laptop size: nav links can overflow, fix that -- */
+@media (max-width: 1100px) {
+    nav {
+        overflow-x: auto;
+    }
+
+    .menu1 {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    /* Header items: hide less important ones as space shrinks */
+    .parent {
+        display: none;
+    }
+
+    .on, .pi, .tw, .ti {
+        padding: 20px;
+    }
+}
+
+/* -- Medium screens: header second row for search -- */
+@media (max-width: 900px) {
+    header {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 5px 4px;
+    }
+
+    /* Search bar drops to its own full row */
+    .child {
+        order: 3;
+        width: 100%;
+        padding: 4px 6px;
+    }
+
+    .usa {
+        display: none;
+    }
+
+    .bg {
+        height: 200px;
+    }
+
+    /* Boxes: 2 per row */
+    .boxes {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px;
+        justify-content: center;
+    }
+
+    .box1, .box2, .box3, .box4 {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+        height: auto;
+        min-height: 385px;
+    }
+
+    .if1, .if2, .if3, .if4 {
+        width: 85%;
+        height: 260px;
+    }
+
+    /* Books wrap and images scale */
+    .books {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px;
+        justify-content: center;
+    }
+
+    .books img {
+        width: calc(20% - 8px);
+        min-width: 80px;
+        height: auto;
+    }
+
+    .subbox {
+        height: auto;
+        padding-bottom: 16px;
+    }
+
+    /* Footer: wrap columns */
+    .know {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 20px 0;
+        align-items: flex-start;
+    }
+
+    .on, .pi, .tw, .ti {
+        flex: 1 1 40%;
+        padding: 15px 20px;
+    }
+
+    .conditions {
+        height: auto;
+        padding: 12px;
+    }
+
+    .upper-sec {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* -- Small screens: 1 column layout -- */
+@media (max-width: 600px) {
+    .hello, .return {
+        padding: 3px;
+    }
+
+    .h, .r {
+        font-size: 11px;
+    }
+
+    .a, .o {
+        font-size: 12px;
+    }
+
+    .bg {
+        height: 140px;
+    }
+
+    .content {
+        height: auto;
+        padding: 8px;
+        text-align: center;
+    }
+
+    /* Boxes: 1 per row */
     .boxes {
         flex-direction: column;
         align-items: center;
     }
-    .know {
-        flex-direction: column;
+
+    .box1, .box2, .box3, .box4 {
+        flex: none;
+        width: 95%;
+        max-width: 95%;
+    }
+
+    .if1, .if2, .if3, .if4 {
+        width: 90%;
+        height: 230px;
+    }
+
+    /* Book images: 3 per row on small screens */
+    .books img {
+        width: calc(33% - 8px);
+        min-width: 70px;
         height: auto;
     }
-    .child {
-        width: 100%;
+
+    /* Footer: full-width columns */
+    .know {
+        flex-direction: column;
     }
-    .books {
-        flex-wrap: wrap;
+
+    .on, .pi, .tw, .ti {
+        flex: none;
+        width: 100%;
+        padding: 12px 20px;
+        border-bottom: 1px solid #37475A;
     }
 }

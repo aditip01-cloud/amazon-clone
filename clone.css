@@ -562,7 +562,7 @@ nav img{
         order: 3;
         width: 100%;
         padding: 4px 6px;
-        box-sizing: border-box;
+        box-sizing: border-box; 
     }
 
     .usa {
@@ -697,6 +697,19 @@ nav img{
         height: auto;
     }
 
+    .abovefooter {
+        text-align: center;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 10px;
+    }
+
+    .abovefooter h1 {
+        font-size: 18px;
+        text-align: center;
+    }
+
     .know {
         flex-direction: column;
         width: 100%;
@@ -708,7 +721,17 @@ nav img{
         width: 100%;
         padding: 12px 20px;
         border-bottom: 1px solid #37475A;
-        box-sizing: border-box; 
+        box-sizing: border-box;
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .on h1, .pi h1, .tw h1, .ti h1 {
+        text-align: center;
+    }
+
+    .on a, .pi a, .tw a, .ti a {
+        text-align: center;
     }
 
     .conditions {

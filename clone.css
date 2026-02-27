@@ -6,6 +6,11 @@ body{
     overflow-x: hidden;
 }
 
+/* FIX: Also apply overflow-x hidden to html to prevent horizontal scroll/white space on mobile */
+html {
+    overflow-x: hidden;
+}
+
 header{
     display: flex;
     align-items: center;
@@ -483,7 +488,6 @@ nav img{
     flex-wrap: wrap;
 }
 
-/* -- When window shrinks below 1400px: boxes start to flex-shrink so they don't overflow -- */
 @media (max-width: 1400px) {
     .boxes {
         gap: 10px;
@@ -496,7 +500,6 @@ nav img{
         min-width: 200px;
     }
 
-    /* Keep minimum padding inside boxes at all times */
     .box1 h1, .box2 h1, .box3 h1, .box4 h1 {
         padding: 0px 15px;
     }
@@ -513,7 +516,6 @@ nav img{
         padding: 30px;
     }
 
-    /* Books: ensure images wrap and stay visible */
     .books {
         flex-wrap: wrap;
         gap: 8px;
@@ -527,7 +529,6 @@ nav img{
     }
 }
 
-/* -- Around laptop size: nav links can overflow, fix that -- */
 @media (max-width: 1100px) {
     nav {
         overflow-x: auto;
@@ -539,7 +540,6 @@ nav img{
         overflow-x: auto;
     }
 
-    /* Header items: hide less important ones as space shrinks */
     .parent {
         display: none;
     }
@@ -549,19 +549,20 @@ nav img{
     }
 }
 
-/* -- Medium screens: header second row for search -- */
 @media (max-width: 900px) {
     header {
         height: auto;
         flex-wrap: wrap;
         padding: 5px 4px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    /* Search bar drops to its own full row */
     .child {
         order: 3;
         width: 100%;
         padding: 4px 6px;
+        box-sizing: border-box;
     }
 
     .usa {
@@ -572,12 +573,13 @@ nav img{
         height: 200px;
     }
 
-    /* Boxes: 2 per row */
     .boxes {
         flex-wrap: wrap;
         gap: 10px;
         padding: 10px;
         justify-content: center;
+        box-sizing: border-box;
+        width: 100%;
     }
 
     .box1, .box2, .box3, .box4 {
@@ -592,7 +594,6 @@ nav img{
         height: 260px;
     }
 
-    /* Books wrap and images scale */
     .books {
         flex-wrap: wrap;
         gap: 8px;
@@ -611,12 +612,13 @@ nav img{
         padding-bottom: 16px;
     }
 
-    /* Footer: wrap columns */
     .know {
         height: auto;
         flex-wrap: wrap;
         padding: 20px 0;
         align-items: flex-start;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .on, .pi, .tw, .ti {
@@ -627,16 +629,25 @@ nav img{
     .conditions {
         height: auto;
         padding: 12px;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
     }
 
     .upper-sec {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .lower-sec {
+        text-align: center;
+        width: 100%;
     }
 }
 
-/* -- Small screens: 1 column layout -- */
 @media (max-width: 600px) {
     .hello, .return {
         padding: 3px;
@@ -658,12 +669,15 @@ nav img{
         height: auto;
         padding: 8px;
         text-align: center;
+        width: 97%;
+        box-sizing: border-box;
     }
 
-    /* Boxes: 1 per row */
     .boxes {
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .box1, .box2, .box3, .box4 {
@@ -677,16 +691,16 @@ nav img{
         height: 230px;
     }
 
-    /* Book images: 3 per row on small screens */
     .books img {
         width: calc(33% - 8px);
         min-width: 70px;
         height: auto;
     }
 
-    /* Footer: full-width columns */
     .know {
         flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .on, .pi, .tw, .ti {
@@ -694,5 +708,37 @@ nav img{
         width: 100%;
         padding: 12px 20px;
         border-bottom: 1px solid #37475A;
+        box-sizing: border-box; 
+    }
+
+    .conditions {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 8px;
+        text-align: center;
+    }
+
+    .upper-sec {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        gap: 4px;
+    }
+
+    .upper-sec a {
+        font-size: 11px;
+        padding: 5px 4px;
+        text-align: center;
+    }
+
+    .lower-sec {
+        text-align: center;
+        width: 100%;
+    }
+
+    .lower-sec p {
+        text-align: center;
     }
 }
